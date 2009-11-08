@@ -3,6 +3,7 @@ package MooseX::Declare::Syntax::Keyword::MethodModifier;
 use Moose;
 use Moose::Util;
 use Moose::Util::TypeConstraints;
+use Sub::Name qw/subname/;
 
 use namespace::clean -except => 'meta';
 

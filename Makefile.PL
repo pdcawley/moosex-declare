@@ -13,9 +13,11 @@ requires 'MooseX::Method::Signatures' => '0.24';
 requires 'MooseX::Role::Parameterized' => '0.12';
 requires 'MooseX::Types' => '0.20'; # need MooseX::Types::Moose
 requires 'List::MoreUtils';
+requires 'Sub::Name';
 
 test_requires 'Test::Exception';
 test_requires 'Test::NoWarnings';
+test_requires 'Sub::Identify';
 tests_recursive;
 
 makemaker_args(dist => { PREOP => 'pod2text lib/MooseX/Declare.pm > README' });

@@ -58,4 +58,13 @@ BEGIN { use_ok('Foo'); }
     lives_ok(sub { $quux->quux(42) });
 }
 
+{
+    use Sub::Identify ':all';
+    my $pkg = 'Foo';
+
+    is(sub_fullname(Foo->can($_)), 'Foo::'.$_) for qw(foo inner bar);
+}
+
+
+
 done_testing;

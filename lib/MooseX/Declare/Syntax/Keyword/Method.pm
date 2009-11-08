@@ -1,6 +1,7 @@
 package MooseX::Declare::Syntax::Keyword::Method;
 
 use Moose;
+use Sub::Name qw/subname/;
 
 use namespace::clean -except => 'meta';
 
@@ -8,6 +9,7 @@ with 'MooseX::Declare::Syntax::MethodDeclaration';
 
 sub register_method_declaration {
     my ($self, $meta, $name, $method) = @_;
+    subname join(q{::}, $meta->name, $name), $method->body;
     return $meta->add_method($name, $method);
 }
 
